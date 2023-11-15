@@ -36,7 +36,10 @@ setInterval(function () {
   var randomNum = (Math.random() * (10 - 3) + 3).toFixed(2);
   for (var i = 0; i < numSockets; i++) {
     for (var collection of collections) {
-      sockets[i].send(JSON.stringify({ collection: collection, price_eth: randomNum.toString() }));
+      // send each 20% of the time
+      if (Math.random() > 0.2) {
+        sockets[i].send(JSON.stringify({ collection: collection, price_eth: randomNum.toString() }));
+      }
     }
   }
 }, 1000);
