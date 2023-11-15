@@ -1,4 +1,7 @@
 # Websocket Coding Challenge Test App
+A simple websocket server that streams random number updates for collections registered.
+
+Used only for coding challenge fun!
 
 ## Subscribe to Floor price updates
 Connect to the WS server:
