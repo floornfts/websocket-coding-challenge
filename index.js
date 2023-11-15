@@ -1,4 +1,11 @@
 var WebSocketServer = require('ws').Server
+var express = require('express');
+const PORT = process.env.PORT || 3000;
+const INDEX = '/index.html';
+
+express()
+  .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
+  .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 var wss = new WebSocketServer( { port: 8080 } );
 var sockets = [];
