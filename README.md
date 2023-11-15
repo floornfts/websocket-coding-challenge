@@ -21,3 +21,8 @@ Updates will be pushed through the socket randomly in the format.
   "price_eth": 7.14
 }
 ```
+
+### Trying it out
+You can try it out here:
+https://www.piesocket.com/websocket-tester
+
