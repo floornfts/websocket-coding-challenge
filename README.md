@@ -6,7 +6,7 @@ Used only for coding challenge fun!
 ## Subscribe to Floor price updates
 Connect to the WS server:
 
-wss://websocket-floor-test-732ef4f89e9d.herokuapp.com
+`wss://websocket-floor-test-732ef4f89e9d.herokuapp.com`
 
 Subscribe to collection:
 ```
