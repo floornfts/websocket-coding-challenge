@@ -1,13 +1,7 @@
 var WebSocketServer = require('ws').Server
-var express = require('express');
 const PORT = process.env.PORT || 3000;
-const INDEX = '/index.html';
 
-express()
-  .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
-  .listen(PORT, () => console.log(`Listening on ${PORT}`));
-
-var wss = new WebSocketServer( { port: 8080 } );
+var wss = new WebSocketServer( { port: PORT } );
 var sockets = [];
 var collections = new Set();
 
@@ -39,10 +33,10 @@ wss.on('connection', function(ws) {
 
 setInterval(function () {
   var numSockets = sockets.length;
-  var randomNum = Math.floor(Math.random() * 11);  // integer between 0 and 10 inclusive
+  var randomNum = (Math.random() * (10 - 3) + 3).toFixed(2);
   for (var i = 0; i < numSockets; i++) {
     for (var collection of collections) {
-      sockets[i].send(JSON.stringify({ collection: collection, data: randomNum.toString() }));
+      sockets[i].send(JSON.stringify({ collection: collection, price_eth: randomNum.toString() }));
     }
   }
 }, 1000);
